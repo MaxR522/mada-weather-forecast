@@ -1,27 +1,39 @@
 import { Box, Tooltip } from '@chakra-ui/react';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../assets/css/map.css';
 import { useSelector } from 'react-redux';
 import BoxWeather from '../components/box';
 
+/**
+ * This component is used to display the interactive map
+ * @returns
+ */
+
 const Maps = () => {
-  const svg = useRef() as React.MutableRefObject<SVGSVGElement>;
+  // state handling array of weather
   const [weathersState, setWeathersState] = useState([]);
-  const [isLoading, setisLoading] = useState(true);
+
+  // state of loading
+  const [isLoading, setIsLoading] = useState(true);
+
+  // get array of weather from redux store
   const weathers = useSelector((state: any) => state.weathers);
 
+  // Extract data inside promise
   (async () => {
     const data = await weathers;
 
     setWeathersState(data);
   })();
 
+  // Change loading state
   useEffect(() => {
     if (weathersState.length !== 0) {
-      setisLoading(false);
+      setIsLoading(false);
     }
   }, [weathersState, weathers]);
 
+  // Get all city name
   useEffect(() => {
     let res: string[] = [];
     document.getElementById('map')?.childNodes.forEach((child: any) => {
@@ -33,6 +45,7 @@ const Maps = () => {
     localStorage.setItem('cities', JSON.stringify(res));
   }, []);
 
+  // Filter the array of weather by city name to get individual result
   const filter = (arr: any[], city: string): any[] => {
     const wc = arr.filter((weather: any) => {
       return weather.location.name === city;
@@ -46,7 +59,6 @@ const Maps = () => {
       {true ? (
         <Box w={'100%'} h={'auto'} display={'flex'} justifyContent={'center'}>
           <svg
-            ref={svg}
             id='map'
             baseProfile='tiny'
             fill='#7c7c7c'

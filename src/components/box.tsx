@@ -1,4 +1,6 @@
-import React from 'react';
+/**
+ * This component is used to display the weather in the toolkit
+ */
 
 type Props = {
   filter: any;
@@ -20,11 +22,11 @@ const BoxWeather = ({ filter, weathersState, region, city }: Props) => {
         condition: {filter(weathersState, city)[0]?.current.condition.text}{' '}
       </div>
       <div>
-        humidity: {`\n${filter(weathersState, city)[0]?.current.humidity}%`}{' '}
+        humidity: {`${filter(weathersState, city)[0]?.current.humidity}%`}{' '}
       </div>
 
       <div>
-        temperature: {`\n${filter(weathersState, city)[0]?.current.temp_c}°C`}
+        temperature: {`${filter(weathersState, city)[0]?.current.temp_c}°C`}
       </div>
       <div>
         temperature ressenti:
