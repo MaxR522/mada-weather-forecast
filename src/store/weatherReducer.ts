@@ -1,6 +1,10 @@
-import responseWeather from '../api/request';
+import { AnyAction } from 'redux';
+import requestWeather from '../api/request';
 
-const initialState = responseWeather().then((data) => {
+// cities from localStorage
+const cities = JSON.parse(localStorage.getItem('cities') || '[]');
+
+const initialState = requestWeather(cities).then((data) => {
   return data;
 });
 
@@ -10,7 +14,7 @@ const initialState = responseWeather().then((data) => {
  * @param action
  * @returns
  */
-const weatherReducer = (state = initialState, action: any) => {
+const weatherReducer = (state = initialState, action: AnyAction) => {
   switch (action.type) {
     default:
       return state;

@@ -3,9 +3,6 @@ import axios from 'axios';
 // api key from .env
 const apiKey = process.env.REACT_APP_API_KEY || '';
 
-// cities from localStorage
-const cities = JSON.parse(localStorage.getItem('cities') || '[]');
-
 /**
  * Make a request to get all city weather and return an array of weather of all city
  * @param cities Array of city names
@@ -35,18 +32,4 @@ const requestWeather = async (cities: string[]) => {
   return weather;
 };
 
-/**
- * call requestWeather and return the result
- * @returns {Promise<any>}
- */
-
-const responseWeather = async () => {
-  try {
-    const weather = await requestWeather(cities);
-    return weather;
-  } catch (error: any) {
-    throw new Error(error);
-  }
-};
-
-export default responseWeather;
+export default requestWeather;
