@@ -1,4 +1,4 @@
-import { Box, Container, Tooltip } from '@chakra-ui/react';
+import { Box, Tooltip } from '@chakra-ui/react';
 import React, { useEffect, useRef, useState } from 'react';
 import '../assets/css/map.css';
 import { useSelector } from 'react-redux';
@@ -42,9 +42,9 @@ const Maps = () => {
   };
 
   return (
-    <Container>
+    <>
       {true ? (
-        <Box>
+        <Box w={'100%'} h={'auto'} display={'flex'} justifyContent={'center'}>
           <svg
             ref={svg}
             id='map'
@@ -56,7 +56,7 @@ const Maps = () => {
             strokeLinejoin='round'
             strokeWidth='2'
             version='1.2'
-            viewBox='0 0 1985 1985'
+            viewBox='-500 0 2000 2000'
             width='1000'
             xmlns='http://www.w3.org/2000/svg'
           >
@@ -641,7 +641,7 @@ const Maps = () => {
       ) : (
         <div>Loading</div>
       )}
-    </Container>
+    </>
   );
 };
 
