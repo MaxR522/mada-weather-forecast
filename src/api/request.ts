@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apikey = '241f40eddcdf47d5b3260442221003';
+const apikey = process.env.REACT_APP_API_KEY || '';
 const cities = JSON.parse(localStorage.getItem('cities') || '[]');
 
 const requestWeather = async (cities: string[]) => {
