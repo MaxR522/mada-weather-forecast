@@ -1,0 +1,9 @@
+path {
+  transition: all 0.7s ease;
+}
+
+path:hover,
+path:active {
+  fill: #000;
+  cursor: pointer;
+}
