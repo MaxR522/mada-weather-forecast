@@ -12,6 +12,7 @@ const Footer = (props: Props) => {
         height={'auto'}
         display={'flex'}
         alignItems={'center'}
+        flexDirection={'column'}
         mt={'20px'}
         py={'20px'}
       >
@@ -25,8 +26,8 @@ const Footer = (props: Props) => {
             {' '}
             Mario Randrianomearisoa
           </Link>{' '}
-          <Text fontSize={'sm'}>Copyright © 2022</Text>
         </Text>
+        <Text fontSize={'sm'}>Copyright © 2022</Text>
       </Box>
     </>
   );
