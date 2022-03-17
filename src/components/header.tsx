@@ -1,8 +1,6 @@
 import { Box, Text } from '@chakra-ui/react';
 
-type Props = {};
-
-const Header = (props: Props) => {
+const Header = () => {
   return (
     <>
       <Box

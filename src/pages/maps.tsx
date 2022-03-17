@@ -1,5 +1,5 @@
 import { Box, Tooltip } from '@chakra-ui/react';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../assets/css/map.css';
 import { useSelector } from 'react-redux';
 import BoxWeather from '../components/box';
